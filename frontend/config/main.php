@@ -32,6 +32,18 @@ return [
             // this is the name of the session cookie used for login on the frontend
             'name' => 'advanced-frontend',
         ],
+        //语言包配置
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '/messages',  //使用默认，当前路径，不需要单独声明配置
+                    'fileMap' => [
+                        'common' => 'common.php',
+                    ]
+                ]
+            ],
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
