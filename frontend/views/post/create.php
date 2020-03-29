@@ -18,7 +18,12 @@ $this->title = '创建';
             <?php $form = ActiveForm::begin(); ?>
             <?= $form->field($model,'title')->textInput(['maxlength'=>true])?>
             <?= $form->field($model,'cate_id')->dropDownList($cate)?>
-            <?= $form->field($model,'label_img')->textInput(['maxlength'=>true])?>
+            <?= $form->field($model, 'label_img')->widget('common\widgets\file_upload\FileUpload',[
+                'config'=>[
+                    //图片上传的一些配置，不写调用默认配置
+                ]
+            ]) ?>
+
             <?= $form->field($model,'content')->textInput(['maxlength'=>true])?>
             <?= $form->field($model,'tags')->textInput(['maxlength'=>true])?>
             <div class="form-group">

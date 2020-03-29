@@ -28,4 +28,20 @@ class PostController extends BaseController {
         $cate = CateModel::getAllCate();
         return $this->render('create',['model'=>$model,'cate'=>$cate]);
     }
+
+    /**
+     * 调用图片上传扩展
+     * @return array
+     */
+    public function actions()
+    {
+        return [
+            'upload'=>[
+                'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
+                'config' => [
+                    'imagePathFormat' => "/image/{yyyy}{mm}{dd}/{time}{rand:6}",
+                ]
+            ]
+        ];
+    }
 }
