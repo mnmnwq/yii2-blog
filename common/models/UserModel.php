@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use common\models\base\BaseModel;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -22,7 +23,7 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property string $password write-only password
  */
-class UserModel extends ActiveRecord implements IdentityInterface
+class UserModel extends BaseModel implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
