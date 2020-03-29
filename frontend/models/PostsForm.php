@@ -37,6 +37,7 @@ class PostsForm extends Model{
             'content' => '内容',
             'label_img' => '标签图',
             'tags' => '标签',
+            'cate_id' => '分类',
         ];
     }
 }
