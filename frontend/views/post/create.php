@@ -29,7 +29,11 @@ $this->title = '创建';
                     'initialFrameHeight' => 400,
                 ]
             ]) ?>
-            <?= $form->field($model,'tags')->textInput(['maxlength'=>true])?>
+            <?= $form->field($model, 'tags')->widget('common\widgets\tags\tagWidget',[
+                'options'=>[
+                    'initialFrameHeight' => 400,
+                ]
+            ]) ?>
             <div class="form-group">
                 <?=Html::submitButton('发布',['class'=>'btn btn-success'])?>
             </div>
