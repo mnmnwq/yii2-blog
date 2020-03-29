@@ -7,6 +7,7 @@ namespace frontend\controllers;
 use common\models\CateModel;
 use frontend\controllers\base\BaseController;
 use frontend\models\PostsForm;
+use Yii;
 
 class PostController extends BaseController {
     /**
@@ -24,6 +25,15 @@ class PostController extends BaseController {
     public function actionCreate()
     {
         $model = new PostsForm();
+        //定义场景
+        $model->setScenario(PostsForm::SCENARIO_CREATE);
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            if($model->create()){
+                return $this->redirect(['post/view','id'=>$model->id]);
+            }else{
+                Yii::$app->session->setFlash('warning',$model->_lastError);
+            }
+        }
         //获取所有分类
         $cate = CateModel::getAllCate();
         return $this->render('create',['model'=>$model,'cate'=>$cate]);
