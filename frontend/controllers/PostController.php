@@ -4,6 +4,7 @@
  */
 namespace frontend\controllers;
 
+use common\models\CateModel;
 use frontend\controllers\base\BaseController;
 use frontend\models\PostsForm;
 
@@ -23,6 +24,8 @@ class PostController extends BaseController {
     public function actionCreate()
     {
         $model = new PostsForm();
-        return $this->render('create',['model'=>$model]);
+        //获取所有分类
+        $cate = CateModel::getAllCate();
+        return $this->render('create',['model'=>$model,'cate'=>$cate]);
     }
 }

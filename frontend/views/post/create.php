@@ -17,7 +17,7 @@ $this->title = '创建';
         <div class="panel-body">
             <?php $form = ActiveForm::begin(); ?>
             <?= $form->field($model,'title')->textInput(['maxlength'=>true])?>
-            <?= $form->field($model,'cate_id')->dropDownList([1=>'分类名称'])?>
+            <?= $form->field($model,'cate_id')->dropDownList($cate)?>
             <?= $form->field($model,'label_img')->textInput(['maxlength'=>true])?>
             <?= $form->field($model,'content')->textInput(['maxlength'=>true])?>
             <?= $form->field($model,'tags')->textInput(['maxlength'=>true])?>
