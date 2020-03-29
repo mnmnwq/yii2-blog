@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\controllers\base\BaseController;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -18,7 +19,7 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * {@inheritdoc}
